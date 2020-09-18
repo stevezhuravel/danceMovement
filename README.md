@@ -1,6 +1,6 @@
-# danceMovement
+# danceMovements
 
-!! Update log file on any new commits !!
+# !! Update log file on any new commits !!
 
 Project - Dance Movements
 
