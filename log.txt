@@ -1,0 +1,3 @@
+Records Log
+
+9/18/20 = Created repository, index.html, and log file.
