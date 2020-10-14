@@ -6,7 +6,7 @@ Records Log
          - Second meeting. Finished the project proposal. 7:20 pm - 9:00 pm.
 09/09/20 - Submitted the project proposal and the project detail. 
 09/18/20 - Third meeting. Created repository, index.html, and log file. 3:00 pm - 3:20 pm.
-09/19/20 - Created HTML with Css. 10:00 am - 10:30 am HTML 10:30 am - 11 am CSS.
+09/19/20 - Created HTML with CSS. HTML 10:00 am – 10:30 am. CSS 10:30 am – 11:00 am.
 09/20/20 - Recieved dance movement files from Maho Ogawa to put into database.
 09/29/20 - Sent Maho Ogawa the progress of the project.
 10/01/20 - Sent update to Professor Weiss regarding the progress and concerns of project. 
