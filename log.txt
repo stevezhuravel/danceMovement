@@ -1,4 +1,15 @@
 Records Log
 
-9/18/20 = Created repository, index.html, and log file.
-9/19/20 = Created HTML with Css
+09/06/20 - Sent out the initial email to Maho Ogawa regarding the project.
+09/07/20 - First meeting. Discussed about the project and the roles briefly. 7:00 pm - 7:15 pm.
+09/08/20 - First Zoom meeting with Maho Ogawa. Discussed about the project detail( her request and idea proposal) and what database service and applications we will use for the project. 4:00 pm - 5:30 pm.
+         - Second meeting. Finished the project proposal. 7:20 pm - 9:00 pm.
+09/09/20 - Submitted the project proposal and the project detail. 
+09/18/20 - Third meeting. Created repository, index.html, and log file. 3:00 pm - 3:20 pm.
+09/19/20 - Created HTML with Css. (add time?)
+09/20/20 - Recieved dance movement files from Maho Ogawa to put into database.
+09/29/20 - Sent Maho Ogawa the progress of the project.
+10/01/20 - Sent update to Professor Weiss regarding the progress and concerns of project. 
+10/06/20 - Fourth meeting. Discussed the updates and details about the project. 1:00 pm - 1:15 pm. 
+10/10/20 - Fifth meeting. Discussed the interm report. 5:00 pm - 5:20 pm.
+10/13/20 - Sixth meeting. Further discussed the interm report in detail, the logs and the project detail. 4:22 pm - 5:00 pm.
