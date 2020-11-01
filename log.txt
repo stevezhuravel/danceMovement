@@ -13,3 +13,4 @@ Records Log
 10/06/20 - Fourth meeting. Discussed the updates and details about the project. 1:00 pm - 1:15 pm. 
 10/10/20 - Fifth meeting. Discussed the interm report. 5:00 pm - 5:20 pm.
 10/13/20 - Sixth meeting. Further discussed the interm report in detail, the logs and the project detail. 4:22 pm - 5:00 pm.
+10/24/20/   Made a table in a database withh all the dance movement 
