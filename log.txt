@@ -13,4 +13,7 @@ Records Log
 10/06/20 - Fourth meeting. Discussed the updates and details about the project. 1:00 pm - 1:15 pm. 
 10/10/20 - Fifth meeting. Discussed the interm report. 5:00 pm - 5:20 pm.
 10/13/20 - Sixth meeting. Further discussed the interm report in detail, the logs and the project detail. 4:22 pm - 5:00 pm.
-10/24/20/   Made a table in a database withh all the dance movement 
+10/24/20 - Created a table in a database withh all the dance movement using MySQL.
+11/3/20  - First meeting with Professor Chuang. Got some supervision regarding the project. 3:30 pm - 4:20 pm.
+11/7/20  - Seventh meeting. Further discussed the topic Professor Chuang helped us upon. 2:30 pm - 3:30 pm.
+11/10/20 - Second meeting with Professor Chuang.
