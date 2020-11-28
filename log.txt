@@ -16,4 +16,7 @@ Records Log
 10/24/20 - Created a table in a database withh all the dance movement using MySQL.
 11/3/20  - First meeting with Professor Chuang. Got some supervision regarding the project. 3:30 pm - 4:20 pm.
 11/7/20  - Seventh meeting. Further discussed the topic Professor Chuang helped us upon. 2:30 pm - 3:30 pm.
-11/10/20 - Second meeting with Professor Chuang.
+11/10/20 - Second meeting with Professor Chuang. More discussion regarding MySQL.
+11/22/20 - Updated Professor Chaung on the progress.
+11/27/20 - Eighth meeting. Uploaded dance files to GitHub. Worked further on the database. Created tables in the database, transported dance movement videos into the table. 7:00 pm - 9:30.
+11/29/20 - 
