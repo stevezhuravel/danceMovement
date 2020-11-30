@@ -20,4 +20,4 @@ Records Log
 11/22/20 - Updated Professor Chaung on the progress.
 11/27/20 - Eighth meeting. Uploaded dance files to GitHub. Worked further on the database. Created tables in the database, transported dance movement videos into the table. 7:00 pm - 9:30.
 11/28/20 - Created sign-in page/form, sign up form and updated CSS file. 11:00 am - 12:50 pm, 3:00 - 4:00 pm.
-11/29/20 - 
+11/29/20 - Ninth meeting. Fixed minor design issues with the sign up form. Added two buttons, sign up and login, on the main page so they can be easily accessed. Created password reset page in case the user forget the password. Updated the CSS file for password page and the buttons. 7:00 - 9:00 pm.
