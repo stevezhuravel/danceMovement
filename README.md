@@ -10,6 +10,6 @@ Goal - Create a website, with a database of dance moves and a function to add mo
 
 (Update below as needed)
 
-Next Steps: update index.html to a base layout, then schedule a meeting with Ogawa
+Next Steps: Making javascript files to run on the front end.
 
 ~
