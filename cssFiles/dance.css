@@ -10,6 +10,34 @@ h1{
     text-align: center;
 }
 
+.signupbuttom button{
+    outline: none;
+    height: 30px;
+    background: rgb(171, 205, 243);
+    font-size: 18px;
+    cursor: pointer;
+    color: #000;
+    position: absolute;
+    float: left;
+    top: 20px;
+    margin: 2% 1cm;
+    
+}
+
+.loginbuttom button{
+    outline: none;
+    height: 30px;
+    width: 58px;
+    background: rgb(171, 205, 243);
+    font-size: 18px;
+    cursor: pointer;
+    color: #000;
+    position: absolute;
+    float: none;
+    top: 20px;
+    margin: 2% 3.5cm;  
+}
+
 .loginbox{
     width: 320px;
     height: 420px;
