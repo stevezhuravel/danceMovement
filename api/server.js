@@ -25,8 +25,10 @@ app.use(cors());
 	 ----
 */
 
-app.use('../client/static', express.static('static'))
-    // GET all the users
+//app.use(express.static(path.join(_dirname, "../client/static")))
+app.use(express.static("../client/static"))
+
+// GET all the users
 app.get("/api/v1/users", (req, res) => {
     try {
         let query = mysql.format('SELECT * FROM users');
