@@ -101,10 +101,10 @@ app.get("/api/v1/media", (req, res) => {
 		 }
 }
 */
-app.put('/api/v1/user/new', async(req, res) => {
+app.post('/api/v1/user/new', (req, res) => {
     try {
         // const { username, password } = req.params;
-        const { username, password } = req.body.data;
+        const { username, password } = req.body;
         let query = mysql.format('INSERT INTO ?? (??,??) VALUES (?,?)', ["users", "usrname", "password", username, password]);
         pool.query(query, (err, response) => {
             if (err) {
@@ -113,7 +113,8 @@ app.put('/api/v1/user/new', async(req, res) => {
             }
             // rows fetch
             console.log(response);
-            res.send({ status: 'success', message: 'user added' });
+            res.redirect("/login")
+                // res.send({ status: 'success', message: 'user added' });
         });
 
     } catch (error) {
