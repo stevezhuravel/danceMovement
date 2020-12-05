@@ -7,9 +7,9 @@ const mysql = require('mysql');
 const pool = mysql.createPool({
     connectionLimit: 100, //arbitrary value
     host: 'localhost',
-    user: 'dance',
-    password: '1111',
-    database: 'dancemovement'
+    user: 'root',
+    password: process.env.PASSWORD,
+    database: 'database2'
 });
 
 var path = require('path');
@@ -162,19 +162,19 @@ app.put('/api/v1/playlist/new', async(req, res) => {
 });
 
 app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname, '../client/index.html'));
+    res.sendFile(path.join(__dirname, '../client/', 'index.html'));
 });
 
 app.get('/signup', function(req, res) {
-    res.sendFile(path.join(__dirname, '../client/signup.html'));
+    res.sendFile(path.join(__dirname, '../client/', 'signup.html'));
 });
 
 app.get('/login', function(req, res) {
-    res.sendFile(path.join(__dirname, '../client/sign-in.html'));
+    res.sendFile(path.join(__dirname, '../client/', 'sign-in.html'));
 });
 
 app.get('/password-reset', function(req, res) {
-    res.sendFile(path.join(__dirname, '../client/passwordreset.html'));
+    res.sendFile(path.join(__dirname, '../client/', 'passwordreset.html'));
 });
 
 
