@@ -79,4 +79,3 @@ VALUES
 ('nodozu copy', 057);
 
 SELECT * FROM media;
-DROP TABLE media;

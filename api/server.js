@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser = require("body-parser")
 const cors = require('cors')
 const app = express();
 const mysql = require('mysql');
@@ -17,7 +18,8 @@ var path = require('path');
 // Middleware
 // Allows us to acces req.body
 app.use(express.json());
-// Allows our front end to communicate with our backend
+app.use(bodyParser.urlencoded({ extended: true }))
+    // Allows our front end to communicate with our backend
 app.use(cors());
 
 /* ----
@@ -26,7 +28,7 @@ app.use(cors());
 */
 
 //app.use(express.static(path.join(_dirname, "../client/static")))
-app.use(express.static("../client/static"))
+app.use(express.static("client"))
 
 // GET all the users
 app.get("/api/v1/users", (req, res) => {
@@ -170,6 +172,10 @@ app.get('/', function(req, res) {
 app.get('/signup', function(req, res) {
     res.sendFile(path.join(__dirname, '../client/', 'signup.html'));
 });
+app.post("/signup", function(req, res) {
+    console.log(req.body)
+    res.redirect("/login")
+})
 
 app.get('/login', function(req, res) {
     res.sendFile(path.join(__dirname, '../client/', 'sign-in.html'));
