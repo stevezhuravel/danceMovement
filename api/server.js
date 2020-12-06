@@ -2,9 +2,10 @@ const express = require('express');
 const bodyParser = require("body-parser")
 const cors = require('cors')
 const app = express();
-const mysql = require('mysql');
-
-// Database configurations
+const mysql = require('mysql2');
+const userController = require("./controllers/UserController")
+const db = require("./models")
+    // Database configurations
 const pool = mysql.createPool({
     connectionLimit: 100, //arbitrary value
     host: 'localhost',
@@ -21,14 +22,14 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }))
     // Allows our front end to communicate with our backend
 app.use(cors());
-
-/* ----
-	 API Endpoints
-	 ----
-*/
+db.sequelize.sync()
+    /* ----
+    	 API Endpoints
+    	 ----
+    */
 
 //app.use(express.static(path.join(_dirname, "../client/static")))
-app.use(express.static("client"))
+
 
 // GET all the users
 app.get("/api/v1/users", (req, res) => {
@@ -165,7 +166,7 @@ app.put('/api/v1/playlist/new', async(req, res) => {
         console.log(error.message);
     }
 });
-
+app.use("/api", userController)
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, '../client/', 'index.html'));
 });
@@ -186,7 +187,7 @@ app.get('/password-reset', function(req, res) {
     res.sendFile(path.join(__dirname, '../client/', 'passwordreset.html'));
 });
 
-
+app.use(express.static("client"))
 
 // launches the server
 app.listen(5000, () => {

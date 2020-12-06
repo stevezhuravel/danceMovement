@@ -4,5 +4,5 @@ package-lock.json
 test/*.log
 .DS_Store
 .env
-log.txt
 debug.log
+config.json

@@ -12,11 +12,11 @@
     <h1>Sign Up Form</h1>
     <div class="loginbox">
         <img src="./static/imgs/login.png" class="login">
-        <form method="POST" action="/api/v1/user/new">
-            <input type="text" name="username" placeholder="Username">
-            <input type="text" name="email" placeholder="Email">
-            <input type="password" name="password" placeholder="Password">
-            <input type="password" name="password2" placeholder="Re-enter password">
+        <form method="POST" action="/api">
+            <input type="text" id="username" name="username" placeholder="Username">
+            <input type="text" id="email" name="email" placeholder="Email">
+            <input type="password" id="password" name="password" placeholder="Password">
+            <input type="password" id="password2" name="password2" placeholder="Re-enter password">
             <input type="submit" name="sign-up-button" value="Sign Up">
         </form>
     </div>
