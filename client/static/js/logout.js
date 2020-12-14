@@ -1,5 +1,8 @@
-const form = document.querySelector("form")
+const logoutButton = document.getElementById("logout")
+const API_URL = "http://localhost:5000/api/logout"
 
-form.addEventListener("submit", e => {
-    console.log("hello")
+logoutButton.addEventListener("click", async() => {
+    await fetch(API_URL, {
+        method: "DELETE"
+    })
 })
