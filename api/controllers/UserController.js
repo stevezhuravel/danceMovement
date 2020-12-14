@@ -1,26 +1,22 @@
 const db = require("../models");
 const User = db.users
 const router = require("express").Router()
+const bycrypt = require("bcrypt")
+const passport = require("../middlewares/authentication")
+const { signup } = require("../middlewares/viewsMiddlewares")
 
-// Create and Save a new User
-router.post("/", async(req, res) => {
-    try {
-        const user = {
-            userName: req.body.username,
-            email: req.body.email,
-            password: req.body.password
-        }
+router.post("/login", passport.authenticate("local", {
+        successRedirect: "/videos",
+        failureRedirect: "/login",
+        failureFlash: true
+    }), 
+    (req, res) => {
+    console.log("login successful!")
+})
 
-        await User.create(user)
-
-        //For the actual app
-        res.redirect("/login")
-
-        //For PostMan
-        //res.json(response)
-    } catch (error) {
-        res.status(500).json({ message: "Some error occurred while creating the User." })
-    }
+router.delete("/logout", (req, res) => {
+    req.logOut()
+    res.redirect('/login')
 })
 
 // Retrieve all Users from the database.
@@ -29,7 +25,7 @@ router.get("/", async(req, res) => {
         const response = await User.findAll()
         res.json(response)
     } catch (error) {
-        res.status(500).json({ message: "Some error occurred while retrieving the Users :()." })
+        res.status(500).json({ message: "Some error occurred while retrieving the Users :(." })
     }
 })
 
@@ -86,5 +82,45 @@ router.delete("/", async(req, res) => {
         res.status(500).json({ message: "Error deleting rows" })
     }
 })
+
+const createUser = async (req, res, next) => {
+    try {
+        const username = req.body.username
+               
+        //When a user makes a post request to this route from the sign up page, we must check to see if the 
+        //username they entered is availale. If the name they entered is already taken by someone in the 
+        //database, return them back to the sign up page with a message telling them the name is taken
+        if(await User.findByPk(username)){
+            console.log(`user name ${username} taken!`)
+            req.data = {
+                username: username,
+                usernameTaken: true
+            }
+            //res.redirect("/signup")
+            return next()
+        }
+
+        const user = {
+            username: req.body.username,
+            email: req.body.email,
+            password: req.body.password//await bycrypt.hash(req.body.password, 10)
+        }
+
+        console.log("user:", user)
+        await User.create(user)
+
+        //For the actual app
+        res.redirect("/login")
+
+        //For PostMan
+        //res.json(response)
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({ message: "Something went wrong smh" })
+    }
+}
+
+// Create and Save a new User
+router.post("/", createUser, signup)
 
 module.exports = router

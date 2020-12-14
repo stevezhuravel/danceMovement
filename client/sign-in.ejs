@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./static/imgs/dancing.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="./static/cssFiles/dance.css">
+    <title>
+        Login Form
+    </title>
+</head>
+
+<body>
+    <h1>Login Form</h1>
+    <div class="loginbox">
+        <img src="./static/imgs/login.png" class="login">
+        <h2>Login Here</h2>
+        <form method="POST" action="/api/login">
+            <p>Username</p>
+            <input type="text" name="username" placeholder="Enter Username">
+            <p>Password</p>
+            <input type="password" name="password" placeholder="Enter password">
+
+            <% if(messages.error){ %>
+                <h4 style="color: red;"> <%= messages.error%> </h4>
+            <% } %>
+            <input type="submit" name="login" value="Login">
+            <a href="/password-reset">Forgot your password?</a><br>
+            <a href="/signup">Don't have an account?</a>
+        </form>
+    </div>
+</body>
+
+</html>

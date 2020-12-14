@@ -1,49 +1,41 @@
+if(process.env.NODE_ENV !== "production"){
+    require("dotenv").config()
+}
+
 const express = require('express');
+const expressSession = require("express-session");
 const bodyParser = require("body-parser")
+const flash = require("express-flash")
 const cors = require('cors')
 const app = express();
 const userController = require("./controllers/UserController")
+const viewsController = require("./controllers/ViewsController")
+const passport = require("./middlewares/authentication")
 const db = require("./models")
-    // Database configurations
+const PORT = process.env.PORT || 5000
 
-const path = require('path');
+app.set("view-engine", "ejs")
 
-// Middleware
-// Allows us to acces req.body
-app.use(express.json());
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }))
-    // Allows our front end to communicate with our backend
 app.use(cors());
-db.sequelize.sync()
-    /* ----
-    	 API Endpoints
-    	 ----
-    */
+app.use(flash())
+app.use(expressSession({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+}));
 
+app.use(passport.initialize());
+app.use(passport.session());
+db.sequelize.sync({ force: false })
+
+//Mount controllers
 app.use("/api", userController)
-app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname, '../client/', 'index.html'));
-});
-
-app.get('/signup', function(req, res) {
-    res.sendFile(path.join(__dirname, '../client/', 'signup.html'));
-});
-app.post("/signup", function(req, res) {
-    console.log(req.body)
-    res.redirect("/login")
-})
-
-app.get('/login', function(req, res) {
-    res.sendFile(path.join(__dirname, '../client/', 'sign-in.html'));
-});
-
-app.get('/password-reset', function(req, res) {
-    res.sendFile(path.join(__dirname, '../client/', 'passwordreset.html'));
-});
-
+app.use("/", viewsController)
 app.use(express.static("client"))
 
 // launches the server
-app.listen(5000, () => {
-    console.log('Server is running at port 5000');
+app.listen(PORT, () => {
+    console.log(`Server is running at port ${PORT}`);
 });

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="./static/imgs/dancing.png" type="image/x-icon">
+        <link rel="stylesheet" type="text/css" href="./static/cssFiles/dance.css">  
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Sign Up Form</h1>
+        <div class="loginbox">
+            <img src="./static/imgs/login.png" class="login">
+            
+            <% if (usernameTaken) { %>
+                <h3 style="color: red;"> Username <%= username %> is taken!</h3>
+            <% } %>
+            <form method="POST" action="/api">
+                <input type="text" id="username" name="username" placeholder="Username">
+                <input type="text" id="email" name="email" placeholder="Email">
+                <input type="password" id="password" name="password" placeholder="Password">
+                <input type="password" id="password2" name="password2" placeholder="Re-enter password">
+                <input type="submit" name="sign-up-button" value="Sign Up">
+            </form>
+        </div>
+    </body>
+</html>
