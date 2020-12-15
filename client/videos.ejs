@@ -14,12 +14,10 @@
     <h1> Welcome
         <%= username %>. Here are your videos!</h1>
     <% for (let video of videos) {%>
-        <h1>
-            <%= video %>
-        </h1>
-        <!-- <video class="bunny-video" width="200" controls>
-                <source src="mov_bbb.mp4" type="video/mp4">
-            </video> -->
+        <!-- <h1><%= video%></h1> -->
+        <video class="dance-video" width="auto" controls>
+                <source src="<%= video %>" type="video/mp4">
+            </video>
         <% } %>
 
             <button id="logout" class="btn btn-primary">Log out</button>

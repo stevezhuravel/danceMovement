@@ -1,4 +1,6 @@
-const path = require('path')
+const path = require('path');
+const { Video } = require("../models")
+
 
 exports.signup = (req, res) => {
     //If this function is passed a "data" object that does that contain any information, render the 
@@ -18,7 +20,23 @@ exports.checkAuthenticated = (req, res, next) => {
 
 exports.checkNotAuthenticated = (req, res, next) => {
     if (req.isAuthenticated()) {
-        return res.redirect('/')
+        return res.redirect('/dashboard')
     }
     next()
+}
+
+exports.getAllVideos = async (req, res, next) => {
+    try {
+        const videos = await Video.findAll()
+        let videoFileNames = []
+        
+        videos.forEach(file => {
+            videoFileNames.push("../dancingmovment/" + file.videoname)
+        })
+
+        req.videos = videoFileNames
+        return next()
+    } catch (error) {
+        console.log(error)
+    }
 }

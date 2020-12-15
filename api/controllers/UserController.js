@@ -1,28 +1,19 @@
-const db = require("../models");
-const User = db.users
+const { User } = require("../models");
 const router = require("express").Router()
 const bycrypt = require("bcrypt")
 const passport = require("../middlewares/authentication")
-const { signup } = require("../middlewares/viewsMiddlewares")
+const { signup, checkNotAuthenticated } = require("../middlewares/viewsMiddlewares")
+
+router.post("/login", checkNotAuthenticated, passport.authenticate("local", {
+    successRedirect: "/dashboard",
+    failureRedirect: "/login",
+    failureFlash: true
+}))
 
 router.delete("/logout", (req, res) => {
     console.log("hello delete")
-    req.logOut()
+    req.logout()
     res.redirect("/login")
-})
-
-router.post("/login", passport.authenticate("local", {
-        successRedirect: "/videos",
-        failureRedirect: "/login",
-        failureFlash: true
-    }),
-    (req, res) => {
-        console.log("login successful!")
-    })
-
-router.delete("/logout", (req, res) => {
-    req.logOut()
-    res.redirect('/login')
 })
 
 // Retrieve all Users from the database.
@@ -89,27 +80,27 @@ router.delete("/", async(req, res) => {
     }
 })
 
-const createUser = async(req, res, next) => {
+const createUser = async (req, res, next) => {
     try {
         const username = req.body.username
-
+               
         //When a user makes a post request to this route from the sign up page, we must check to see if the 
         //username they entered is availale. If the name they entered is already taken by someone in the 
         //database, return them back to the sign up page with a message telling them the name is taken
-        if (await User.findByPk(username)) {
+        if(await User.findByPk(username)){
             console.log(`user name ${username} taken!`)
             req.data = {
-                    username: username,
-                    usernameTaken: true
-                }
-                //res.redirect("/signup")
+                username: username,
+                usernameTaken: true
+            }
+            //res.redirect("/signup")
             return next()
         }
 
         const user = {
             username: req.body.username,
             email: req.body.email,
-            password: req.body.password //await bycrypt.hash(req.body.password, 10)
+            password: req.body.password//await bycrypt.hash(req.body.password, 10)
         }
 
         console.log("user:", user)
@@ -127,7 +118,6 @@ const createUser = async(req, res, next) => {
 }
 
 // Create and Save a new User
-router.post("/", createUser, signup)
-
+router.post("/", checkNotAuthenticated, createUser, signup)
 
 module.exports = router

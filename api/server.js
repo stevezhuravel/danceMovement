@@ -1,4 +1,4 @@
-if(process.env.NODE_ENV !== "production"){
+if (process.env.NODE_ENV !== "production") {
     require("dotenv").config()
 }
 
@@ -10,12 +10,12 @@ const cors = require('cors')
 const app = express();
 const userController = require("./controllers/UserController")
 const viewsController = require("./controllers/ViewsController")
+const videoController = require("./controllers/VideoController")
 const passport = require("./middlewares/authentication")
 const db = require("./models")
 const PORT = process.env.PORT || 5000
 
 app.set("view-engine", "ejs")
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors());
@@ -31,7 +31,8 @@ app.use(passport.session());
 db.sequelize.sync({ force: false })
 
 //Mount controllers
-app.use("/api", userController)
+app.use("/api/videos", videoController)
+app.use("/api/users", userController)
 app.use("/", viewsController)
 app.use(express.static("client"))
 
