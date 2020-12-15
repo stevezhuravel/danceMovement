@@ -23,12 +23,5 @@ Records Log
 11/29/20 - Ninth meeting. Fixed minor design issues with the sign up form. Added two buttons, sign up and login, on the main page so they can be easily accessed. Created password reset page in case the user forget the password. Updated the CSS file for password page and the buttons. 7:00 - 9:00 pm.
 12/1/20 - Third meeting with professor Chuang. Discussed how to farther inprove CSS, input validation for forms, how to connect front-end and back-end, using Node.js and Javascript and created a page for dance selection for users to easily select the dance movements and create the desired routines. 1:00 pm - 3:00 pm.(Meeting). 7 00 pm - 8:30 pm.(Creating the selection page)
 12/3/20 - Tenth meeting. Updated on our progress and what the next step is. Updated the improved CSS file for the main page. Started working on Javascript for login and sign-up pages. 1:00 pm - 3:30 pm.
-<<<<<<< HEAD
 12/4/20 - Eleventh meeting. Connected back-end and front-end. Successful with running the HTML on the local sever. Fourth meeting with professor Chuang. Helped us with Javascript and guided us with framework selection. 
 12/6/20  Successful connected server code to database. User information can be saved to database.
-=======
-12/4/20 - Eleventh meeting. Connected back-end and front-end. Successful with running the HTML on the local sever. Fourth meeting with professor Chuang. Helped us with Javascript and guided us with framework selection. 7:00 pm - 8:45 pm. 
-12/8/20 - Fifth meeting with professor Chuang. Demo the overall project and progress. Discussed and given advice on the future development on the project and career. 11:30 am - 12:35 pm.
-12/12/20 - Twelfth meeting. Worked on authentication to verify the user account information and login. 7:00 pm - 9:20 pm.
-
->>>>>>> 144d487052ceda0cd4287f9f26db298af1dd3d61
